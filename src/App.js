@@ -1,6 +1,4 @@
 // making a jukebox
-
-//needs npm install react-player
 import './styles.css';
 
 import { useState, useRef } from 'react';
@@ -25,7 +23,6 @@ function Pause({ text, onBtnClick }) {
 function Up({ onBtnClick }) {
   return (
       <button className="arrow-btn up" onClick={onBtnClick}>
-          {/* Up */}
       </button>
   );
 }
@@ -33,7 +30,6 @@ function Up({ onBtnClick }) {
 function Down({ onBtnClick }) {
   return (
       <button className="arrow-btn down" onClick={onBtnClick}>
-        {/* Down */}
       </button>
   );
 }
@@ -41,7 +37,6 @@ function Down({ onBtnClick }) {
 function Song({ song }) {
   return (
       <div className='song'>
-        {/* {song} */}
         { song.title }
       </div>
   );
@@ -56,17 +51,16 @@ export default function Jukebox() {
 
   const songs = [
     { title: 'Hope Is the Thing With Feathers', url: 'https://www.youtube.com/watch?v=aPyt41nnM0k' },
-    // { title: 'Wildfire', url: 'https://www.youtube.com/watch?v=dbIqNh0D4c8' },
-    // { title: 'If I Can Stop One Heart From Breaking', url: 'https://www.youtube.com/watch?v=TD9hfYUB9ms' },
-    // { title: 'Interstellar Journey', url: 'https://www.youtube.com/watch?v=lMlxrkf7Z0A' },
-    // { title: 'Da Capo', url: 'https://www.youtube.com/watch?v=9iFDPYubUbE' },
+    { title: 'Wildfire', url: 'https://www.youtube.com/watch?v=dbIqNh0D4c8' },
+    { title: 'If I Can Stop One Heart From Breaking', url: 'https://www.youtube.com/watch?v=TD9hfYUB9ms' },
+    { title: 'Interstellar Journey', url: 'https://www.youtube.com/watch?v=lMlxrkf7Z0A' },
+    { title: 'Da Capo', url: 'https://www.youtube.com/watch?v=9iFDPYubUbE' },
 ];
 
   const songCount = songs.length;
 
   function handlePlayClick() {
     setPlay('Playing');
-    // added two lines below for React Player
     playerRef.current.getInternalPlayer().playVideo(); // plays the video from where playerRef is in the video
     if (pause === 'Paused') {
       setPause('Pause')
@@ -82,7 +76,6 @@ export default function Jukebox() {
   }
 
   function handleUpClick() {
-    // console.log('Clicked up')
     playerRef.current.seekTo(0); // sets player to beginning of video
     if (play === 'Playing') {
       setPlay('Play')
@@ -94,7 +87,6 @@ export default function Jukebox() {
   }
 
   function handleDownClick() {
-    // console.log('Clicked down')
     playerRef.current.seekTo(0); // sets player to beginning of video
     if (play === 'Playing') {
       setPlay('Play')
