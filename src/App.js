@@ -61,39 +61,23 @@ export default function Jukebox() {
 
   function handlePlayClick() {
     setPlay('Playing');
-    playerRef.current.getInternalPlayer().playVideo(); // plays the video from where playerRef is in the video
-    if (pause === 'Paused') {
-      setPause('Pause')
-    }
+    setPause('Pause')
   }
 
   function handlePauseClick() {
     setPause('Paused');
-    playerRef.current.getInternalPlayer().pauseVideo(); // pauses the video
-    if (play === 'Playing') {
-      setPlay('Play')
-    }
+    setPlay('Play')
   }
 
   function handleUpClick() {
-    playerRef.current.seekTo(0); // sets player to beginning of video
-    if (play === 'Playing') {
-      setPlay('Play')
-    }
-    if (pause === 'Paused') {
-      setPause('Pause')
-    }
+    setPlay('Play')
+    setPause('Pause')
     setSongI((songI) => (songI + 1 + songCount) % songCount)
   }
 
   function handleDownClick() {
-    playerRef.current.seekTo(0); // sets player to beginning of video
-    if (play === 'Playing') {
-      setPlay('Play')
-    }
-    if (pause === 'Paused') {
-      setPause('Pause')
-    }
+    setPlay('Play')
+    setPause('Pause')
     setSongI((songI) => (songI - 1 + songCount) % songCount)
   }
 
@@ -136,7 +120,7 @@ export default function Jukebox() {
             onEnded={() => handleSongFinished()}
             config={{
               youtube: {
-                playerVars: { autoplay: 1 }
+                playerVars: { autoplay: 0 }
               }
             }}
           />
